@@ -1,0 +1,25 @@
+modules:
+  jira:issuePanel:
+    - key: khs-issue-panel-hello-world-issue-panel
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: KHS-issue-panel
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  runtime:
+    name: nodejs20.x
+  id: ari:cloud:ecosystem::app/b4745a13-0be1-4e1b-8b63-6ab4a1201781
+permissions:
+  scopes:
+    - read:jira-work
+  external:
+    images:
+      - "https://my-unique-site.atlassian.net/images/icons/priorities/medium.svg"
